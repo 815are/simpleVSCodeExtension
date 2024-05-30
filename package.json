@@ -1,0 +1,60 @@
+{
+  "name": "watchers-test",
+  "displayName": "Test extension to report bug",
+  "description": "",
+  "version": "0.0.5",
+  "publisher": "sap",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.32.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "watcherTest.global",
+        "title": "Register global watcher",
+        "category": "watcherTest"
+      },
+      {
+        "command": "watcherTest.local",
+        "title": "Register local watcher",
+        "category": "watcherTest"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "watcherTest.global"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "watcherTest.local",
+          "group": "test"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint . --ext .ts,.tsx",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.0",
+    "@types/vscode": "^1.32.0",
+    "@typescript-eslint/eslint-plugin": "^4.16.0",
+    "@typescript-eslint/parser": "^4.16.0",
+    "eslint": "^7.21.0",
+    "typescript": "^4.4.3"
+  }
+}
